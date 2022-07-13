@@ -1,5 +1,9 @@
 package hello.core.member;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MemberServiceImpl implements MemberService{
     //관례상의 명칭으로 Impl을 붙임 (구현체)
 
@@ -9,6 +13,7 @@ public class MemberServiceImpl implements MemberService{
     private final MemberRepository memberRepository;
 
     //생성자를 통해서 누굴 부를지 결정 -> AppConfig에서
+    @Autowired //ac.getBean(MemberRepository.class) 를 사용한것과 동일한 기능 (2022-07-13)
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository; 
     }
